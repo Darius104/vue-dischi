@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="container">
-            <Song v-for="(element, index) in songs.response" :key="index" />
+            <Song v-for="(element, index) in songs.response" :key="index" :details="element" />
         </div>
     </main>
 </template>
@@ -33,5 +33,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '../style/containers.scss';
-
 </style>

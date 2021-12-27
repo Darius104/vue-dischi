@@ -20,7 +20,7 @@ export default {
         background-color: $color_header;
         display: flex;
         align-items: center;
-
+        margin-bottom: 80px;
         .logo{
             width: 100px;
         }
