@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select @change="$emit(this.selectValue)" v-model="selectValue" name="cars" id="cars">
+        <select @change="$emit('passInfo', selectValue)" v-model="selectValue" name="cars" id="cars">
             <option value="All">All</option>
             <option value="Rock">Rock</option>
             <option value="Pop">Pop</option>

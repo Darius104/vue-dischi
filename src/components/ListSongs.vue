@@ -1,8 +1,8 @@
 <template>
     <main>
-        <Search />
+        <Search @passInfo="searchSongs" />
         <div class="container">
-            <Song v-for="(element, index) in songs.response" :key="index" :details="element" />
+            <Song v-for="(element, index) in filterSongs()" :key="index" :details="element" />
         </div>
        
     </main>
@@ -22,6 +22,18 @@ export default {
     data: function(){
         return{
             songs: [],
+            serchedText: ''
+        }
+    },
+    methods: {
+        searchSongs(selectValue){
+            this.serchedText = selectValue;
+            console.log(this.serchedText)
+
+        },
+// torna array con songs filtrate
+        filterSongs: function(){
+            
         }
     },
 
@@ -29,7 +41,6 @@ export default {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((response) => {
             this.songs = response.data;
-            console.log(this.songs)
         });
     }
 }
