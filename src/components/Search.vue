@@ -1,18 +1,23 @@
 <template>
     <div>
-        <select name="cars" id="cars">
-            <option value="volvo">All</option>
-            <option value="saab">Rock</option>
-            <option value="mercedes">Pop</option>
-            <option value="audi">Jazz</option>
-            <option value="audi">Metal</option>
+        <select @change="$emit(this.selectValue)" v-model="selectValue" name="cars" id="cars">
+            <option value="All">All</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
         </select>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Search"
+    name: "Search",
+    data: function(){
+        return{
+            selectValue: ''
+        };    
+    }
 }
 </script>
 
