@@ -1,19 +1,23 @@
 <template>
     <main>
+        <Search />
         <div class="container">
             <Song v-for="(element, index) in songs.response" :key="index" :details="element" />
         </div>
+       
     </main>
 </template>
 
 <script>
 import axios from 'axios';
 import Song from './Song';
+import Search from './Search.vue';
 
 export default {
     name: "ListSongs",
     components: {
-        Song
+        Song,
+        Search
     },
     data: function(){
         return{
