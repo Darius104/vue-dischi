@@ -26,14 +26,20 @@ export default {
     },
     computed: {
         filterDiscs: function(){
-            return this.songs
+            if(this.filterGenre === "NaN"){
+                return this.songs;
+            }
+            let filterArray = [];
+            filterArray = this.songs.filter((element) => {
+                return element.genre === this.filterGenre;
+            });
+            return filterArray
         }
     },
     created: function(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-        .then((response) => {
-            this.songs = response.data;
-            console.log(this.songs)
+        .then((resp) => {
+            this.songs = resp.data.response;
         });
     }
 }
