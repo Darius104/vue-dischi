@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <ListSongs />
+    <Header @selectChange="setGenre" />
+    <ListSongs :filterGenre="selectGenre" />
   </div>
 </template>
 
@@ -15,6 +15,16 @@ export default {
     Header,
     ListSongs
   },
+  data: function(){
+    return{
+      selectGenre: "NaN"
+    }
+  },
+  methods: {
+    setGenre: function(genre){
+      this.selectGenre = genre
+    }
+  }
 };
 </script>
 
